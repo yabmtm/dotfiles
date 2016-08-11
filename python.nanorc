@@ -1,0 +1,57 @@
+syntax "python" "\.py$" "\.pyc$"
+# all other text not defined below
+color green "[A-Za-z]"
+
+# ???
+color magenta "\\.?"
+
+# user/python-defined functions
+color brightblue "[A-Za-z0-9_]*[(]"
+
+# python keywords
+color red "\<(abs|and|append|apply|as|assert|break|class|continue|def|del|elif|else|eval)\>"
+color red "\<(except|exec|finally|for|from|global|if|in|index|is|lambda|not|or)\>"
+color red "\<(pass|raise|try|while|with|write|writelines|yield)\>"
+
+# symbols
+color red "[-+*/|=%<>&~^()]"
+
+# decorators
+color brightyellow "@[A-Za-z0-9_]+"
+
+# functions and magic objects/attributes
+color brightmagenta "__[A-Za-z0-9_]+__|\<(def|class|return|continue)\>"
+
+# imports
+color magenta "\<(as|import|from)\>"
+
+# methods
+color brightgreen "[A-Za-z0-9_]*\.[A-Za-z0-9_\.]*"
+
+# keywords
+color cyan "\<(True|False|np[A-Za-z\.]*|md[A-Za-z\.]*|plt[A-Za-z\.]*|gmx[A-Za-z\.]*)\>"
+color cyan "\<(numpy[A-Za-z\.]*|mdtraj[A-Za-z\.]*|os[A-Za-z\.]*|sys[A-Za-z\.]*)\>"
+color cyan "\<(self|scipy[A-Za-z\.]*|math[A-Za-z\.]*|simtk[A-Za-z\.]*)\>"
+color cyan "\<(openmm[A-Za-z\.]*|sklearn[A-Za-z_\.]*|msm[A-Za-z_\.]*)\>"
+color cyan "\<(itertools[A-Za-z_\.]*|matplotlib[A-Za-z_\.]*)\>"
+color cyan "\<(socket, logging, time, glob, datetime, subprocess, signal)\>"
+color cyan "\<(random, Queue, gc, traceback, estimator)\>"
+# booleans
+color brightcyan "\<(True|False|None)\>"
+
+# strings
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color yellow   "['][^']*[^\\][']" "[']{3}.*[^\\][']{3}"
+color yellow   "["][^"]*[^\\]["]" "["]{3}.*[^\\]["]{3}"
+
+# block comments
+color brightcyan   start=""""[^"]" end="""""
+color brightcyan   start="'''[^']" end="'''"
+
+# ordinary comments
+color brightcyan "(^|[[:space:]])#([^{].*)?$"
+
+# TODO list
+color brightwhite,cyan "TODO:?"
+
+# +EXTRALINT
