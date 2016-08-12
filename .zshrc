@@ -106,6 +106,7 @@ alias zshstats='history|awk '{print $2}'|sort|uniq -c|sort -rn|head' # returns t
 alias turnitoffandbackonagain="curl -u 'admin:password' 'http://192.168.1.1/setup.cgi?todo=reboot'" # reboots router
 
 # miscellanious
+alias pimount='sudo mount -t ntfs-3g /dev/sda1 ~pyrat' # mounts server HDD
 alias mount1='sudo mount -t ntfs /dev/sdb1 /media/$USER/snuffleupagus && ext1' # mounts external HDDS
 alias mount2='sudo mount -t ntfs /dev/sda1 /media/$USER/icosahedron && ext2'
 alias mount3='veracrypt /media/$USER/icosahedron/syzygium.flac /media/$USER/tmp && cd /media/$USER/tmp'
