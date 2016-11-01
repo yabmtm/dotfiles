@@ -95,6 +95,7 @@ alias ext1='/media/$USER/snuffleupagus' # cd to primary external hdd
 alias ext2='/media/$USER/icosahedron' # cd to secondary external hdd
 
 # system monitoring
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias screenfetch='/home/$USER/packages/screenFetch/screenFetch-master/screenfetch-dev' # pretty, graphical stats
 alias meminfo='free -m -l -t' # memory stats
 alias cpuinfo='lscpu' # cpu stats
