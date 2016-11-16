@@ -107,7 +107,7 @@ alias zshstats='history|awk '{print $2}'|sort|uniq -c|sort -rn|head' # returns t
 alias turnitoffandbackonagain="curl -u 'admin:password' 'http://192.168.1.1/setup.cgi?todo=reboot'" # reboots router
 
 # miscellanious
-alias pimount='sudo mount -t ntfs-3g /dev/sda1 ~pyrat' # mounts server HDD
+alias pimount='ssh pyrat@------.ddns.net sudo mount -t ntfs-3g /dev/sda1 ~pyrat' # mounts server HDD
 alias mount1='sudo mount -t ntfs /dev/sdb1 /media/$USER/snuffleupagus && ext1' # mounts external HDDS
 alias mount2='sudo mount -t ntfs /dev/sda1 /media/$USER/icosahedron && ext2'
 alias mount3='veracrypt /media/$USER/icosahedron/syzygium.flac /media/$USER/tmp && cd /media/$USER/tmp'
@@ -129,6 +129,10 @@ alias df='df -h | grep sd |\
 
 usage() { # shows my custom usage files for various packages
 	more ~/doc/bt/usage/$1
+}
+
+pyupdate() {
+        for i in `pip list -o --format legacy|awk '{print $1}'` ; do pip install --upgrade $i; done
 }
 
 mkgit() { # sets up a git repository once it is created on github
@@ -220,6 +224,10 @@ fetch() { # downloads a given pdb file
     wget www.pdb.org/pdb/files/${1}.pdb
 }
 
+sendmic() {
+    dd if=/dev/dsp | ssh -c arcfour -C pyrat@------.ddns.net dd of=/dev/dsp
+}
+    
 video () { # cli video player
     mplayer -vo caca $1
 }
