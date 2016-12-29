@@ -31,8 +31,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'             # begin underline
 
 # Connections
 alias storm="ssh m------.edu"
-alias whatssh='ssh ------@toast.-------.ca'
-alias whatftp='sftp ------@toast.-------.ca'
+alias whatssh='ssh ------@-----.-------.ca'
+alias whatftp='sftp ------@-----.-------.ca'
 alias homessh='ssh -X alarm@------.ddns.net'
 alias homeftp='sftp alarm@------.ddns.net'
 alias pinessh='ssh root@192.168.1.181'
@@ -44,9 +44,9 @@ alias owlssh='ssh -X ------@------.hpc.------.edu'
 alias owlftp='sftp ------@------.hpc.------.edu'
 alias owl2ssh='ssh -X ------@------.cst.------.edu'
 alias owl2ftp='sftp ------@------.cst.------.edu'
-alias stampede='ssh ------@stampede.----.xsede.org'
-alias stampedeftp='sftp ------@stampede.------.xsede.org'
-alias vav2='ssh ------@------.chem.------.edu'
+alias stampede='ssh ------@stampede.----.----.org'
+alias stampedeftp='sftp ------@stampede.------.----.org'
+alias vav2='ssh ------@------.----.------.edu'
 alias fah='ssh server@------.ocis.------.edu'
 alias vpn='openvpn --daemon --config ~/packages/vpn/Toast.ovpn'
 alias bye='exit'
@@ -131,7 +131,7 @@ usage() { # shows my custom usage files for various packages
 	more ~/doc/bt/usage/$1
 }
 
-pyupdate() {
+pyupdate() { # update pip modules
         for i in `pip list -o --format legacy|awk '{print $1}'` ; do pip install --upgrade $i; done
 }
 
@@ -224,7 +224,7 @@ fetch() { # downloads a given pdb file
     wget www.pdb.org/pdb/files/${1}.pdb
 }
 
-sendmic() {
+sendmic() { # send mic input remotely
     dd if=/dev/dsp | ssh -c arcfour -C pyrat@------.ddns.net dd of=/dev/dsp
 }
     
@@ -232,11 +232,11 @@ video () { # cli video player
     mplayer -vo caca $1
 }
 
-hide () { # switches to line-drawing mode
+hide () { # obscures typing
     echo -e '\e(0'
 }
 
-unhide () { # switches back
+unhide () { # un-obscures typing
     echo -e '\e(B'
 }
 
@@ -262,15 +262,6 @@ webm2gif() {
     ffmpeg -i $1 -pix_fmt rgb24 $1.gif
 
 }
-
-#newmusic () {
-#    mp3info *.mp3 | grep Artist | awk '{print " "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12" "$13" "$14" "$15" "}' | sed 's/^[ \t]*//;s/[ \t]*$//' | tr ' ' '_' | xargs mkdir
-#    for i in $( ls *.mp3 ); do
-#	j = $((mp3info $i | grep Artist | awk '{print " "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12" "$13" "$14" "$15" "}' | sed 's/^[ \t]*//;s/[ \t]*$//' | tr ' ' '_'));
-#	echo $j
-#        mv $i $j 
-#	done
-#}
 
 ## Syntax Highlighting
 
